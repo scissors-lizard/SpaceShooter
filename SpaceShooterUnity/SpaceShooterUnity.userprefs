@@ -1,0 +1,14 @@
+﻿<Properties StartupItem="Assembly-CSharp.csproj">
+  <MonoDevelop.Ide.Workspace ActiveConfiguration="Debug" PreferredExecutionTarget="Unity.Instance.Unity Editor" />
+  <MonoDevelop.Ide.Workbench ActiveDocument="Assets\Scripts\PulseLaser.cs">
+    <Files>
+      <File FileName="Assets\Scripts\PlayerMover.cs" Line="9" Column="1" />
+      <File FileName="Assets\Scripts\PulseLaser.cs" Line="24" Column="24" />
+      <File FileName="Assets\Scripts\AutoAim.cs" Line="7" Column="36" />
+    </Files>
+  </MonoDevelop.Ide.Workbench>
+  <MonoDevelop.Ide.DebuggingService.Breakpoints>
+    <BreakpointStore />
+  </MonoDevelop.Ide.DebuggingService.Breakpoints>
+  <MonoDevelop.Ide.DebuggingService.PinnedWatches />
+</Properties>

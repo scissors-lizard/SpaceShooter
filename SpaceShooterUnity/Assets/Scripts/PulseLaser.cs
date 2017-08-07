@@ -22,11 +22,8 @@ public class PulseLaser : MonoBehaviour {
 			muzzleSparks.Emit (15);
 			audioSource.pitch = Random.Range (0.8f, 1.0f);
 			audioSource.Play ();
-			Debug.Log ("Emit1");
 		}
 
-		Vector3 lookTarget = Camera.main.ScreenToWorldPoint (Input.mousePosition);
-		lookTarget.z = transform.position.z;
-		transform.right = lookTarget - transform.position;
+
 	}
 }
