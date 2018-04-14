@@ -27,6 +27,20 @@ public class ModPiece : MonoBehaviour {
 		if (snapped) {
 			ghost.transform.position = ghostPos;
 			ghost.transform.rotation = ghostRot;
+			if (Input.GetMouseButtonDown (0)) {
+				Attach ();
+			}
+		}
+	}
+
+	void Attach(){
+		transform.position = ghostPos;
+		transform.rotation = ghostRot;
+		ghost.SetActive (false);
+		this.enabled = false;
+
+		for (int i = 0; i < visuals.Length; i++) {
+			visuals [i].SetActive (true);
 		}
 	}
 
@@ -44,7 +58,7 @@ public class ModPiece : MonoBehaviour {
 
 	public void Snap(ModConnector childConnector, Transform hitConnector){
 		// Reset ghost
-		ghost.gameObject.SetActive (true);
+		ghost.SetActive (true);
 		ghost.transform.position = transform.position;
 		ghost.transform.rotation = transform.rotation;
 //
