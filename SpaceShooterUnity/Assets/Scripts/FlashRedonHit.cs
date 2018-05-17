@@ -15,7 +15,6 @@ public class FlashRedonHit : MonoBehaviour {
 		if (flashRoutine == null) {
 			flashRoutine = StartCoroutine (FlashRed ());
 		}
-		Debug.Log ("Hit2D");
 	}
 
 	private IEnumerator FlashRed(){

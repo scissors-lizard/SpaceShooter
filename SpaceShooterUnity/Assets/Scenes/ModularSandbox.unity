@@ -11940,6 +11940,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1048830459}
   - component: {fileID: 1048830460}
+  - component: {fileID: 1048830461}
   m_Layer: 0
   m_Name: Mod_Armor
   m_TagString: Untagged
@@ -11977,6 +11978,19 @@ MonoBehaviour:
   ghost: {fileID: 221244632}
   visuals:
   - {fileID: 469213966}
+--- !u!114 &1048830461
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1048830458}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 2ac7687ca0e2ca942a90599d6b697001, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  parentPiece: {fileID: 0}
+  spriteRend: {fileID: 0}
 --- !u!1 &1098454436
 GameObject:
   m_ObjectHideFlags: 0
@@ -15342,7 +15356,7 @@ GameObject:
   - component: {fileID: 1102141158}
   - component: {fileID: 1102141157}
   m_Layer: 5
-  m_Name: Scroll View
+  m_Name: PieceSelectionMenu
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -15442,6 +15456,7 @@ GameObject:
   - component: {fileID: 1112721250}
   - component: {fileID: 1112721251}
   - component: {fileID: 1112721252}
+  - component: {fileID: 1112721253}
   m_Layer: 0
   m_Name: Player
   m_TagString: Untagged
@@ -15495,6 +15510,17 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 0
+--- !u!114 &1112721253
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1112721249}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 63618d7c762415546892428b860a44db, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1156586864
 GameObject:
   m_ObjectHideFlags: 0
