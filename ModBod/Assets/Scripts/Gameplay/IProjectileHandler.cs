@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public abstract class Projectile : MonoBehaviour {
+public interface IProjectileHandler  {
 
+    void OnProjectileHit(Projectile p);
 }

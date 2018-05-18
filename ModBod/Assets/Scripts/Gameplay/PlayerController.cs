@@ -7,9 +7,9 @@ public class PlayerController : MonoBehaviour {
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float speed;
     [SerializeField] private BodyPart[] bodyParts;
-    [SerializeField] private float rotSpeed, rotDecelAngle;
+    [SerializeField] private float torque, rotDecelAngle;
 
-    private void Start()
+    private void Awake()
     {
         float sumMass = 0f;
         for (int i = 0; i < bodyParts.Length; i++)
@@ -28,7 +28,6 @@ public class PlayerController : MonoBehaviour {
 
     private void UpdateRotation()
     {
-        /*
         Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
         var targetDir = (mousePos - transform.position).normalized;
         var forward = transform.up;
@@ -36,37 +35,29 @@ public class PlayerController : MonoBehaviour {
         float angle = Vector2.SignedAngle(forward, targetDir);
         if (Mathf.Abs(angle) > 0.01f)
         {
-
-            float rotVel = Mathf.Clamp(angle, -rotSpeed, rotSpeed);
-
-            if (Mathf.Abs(angle) < rotDecelAngle) // inside decel zone
-            {
-                rotVel /= Mathf.Abs(rotVel);
-                rotVel *= rotSpeed * Mathf.Abs(angle) / rotDecelAngle;
-            }
-
-            transform.Rotate(0f, 0f, rotVel);
-        }*/
-
-        Vector3 mousePos = Camera.main.ScreenToWorldPoint(Input.mousePosition);
-        var targetDir = (mousePos - transform.position).normalized;
-        var forward = transform.up;
-
-        float angle = Vector2.SignedAngle(forward, targetDir);
-        if (Mathf.Abs(angle) > 0.01f)
-        {
-
-            float rotVel = Mathf.Clamp(angle, -5f, 5f) * rotSpeed / 5f;
+            float rotVel = Mathf.Clamp(angle, -5f, 5f) * torque / 5f;
 
             if (Mathf.Abs(angle) < rotDecelAngle) // inside decel zone
             {
                 rotVel /= Mathf.Abs(rotVel);
-                rotVel *= rotSpeed * Mathf.Abs(angle) / rotDecelAngle;
+                rotVel *= torque * Mathf.Abs(angle) / rotDecelAngle;
             }
 
-            rb.angularVelocity = rotVel;
+            rb.angularVelocity = rotVel / rb.mass;
         }
+        
     }
 
+    public void Lock()
+    {
+        rb.isKinematic = true;
+        this.enabled = false;
+    }
 
+    public void Unlock()
+    {
+        rb.isKinematic = false;
+        this.enabled = true;
+
+    }
 }
