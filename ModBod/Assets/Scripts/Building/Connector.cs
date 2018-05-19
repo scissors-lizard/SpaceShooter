@@ -17,7 +17,7 @@ public class Connector : MonoBehaviour {
             Pair(paired);
         }
         part = transform.parent.GetComponent<BodyPart>();
-	}
+    }
 
     public void Pair(Connector other)
     {
@@ -55,11 +55,14 @@ public class Connector : MonoBehaviour {
             if (!paired)
             {
                 enabled = true;
+                graphic.enabled = true;
             }
         }
         else
         {
             enabled = false;
+            graphic.enabled = false;
+
         }
     }
 }

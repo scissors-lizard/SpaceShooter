@@ -15,8 +15,13 @@ public class Body : MonoBehaviour {
         }
         RecalculateMass();
     }
-	
-	public void AddPart(BodyPart p)
+
+    private void Start()
+    {
+        SetBuildMode(false);
+    }
+
+    public void AddPart(BodyPart p)
     {
         bodyParts.Add(p);
         p.transform.SetParent(transform);

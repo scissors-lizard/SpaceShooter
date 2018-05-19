@@ -38,7 +38,6 @@ public class Buildable : MonoBehaviour {
             {
                 snapping = false;
             }
-
         }
 	}
 

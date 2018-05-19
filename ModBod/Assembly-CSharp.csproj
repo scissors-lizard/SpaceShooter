@@ -77,10 +77,10 @@
     <None Include="Assets\Demigiant\DOTween\DOTween46.xml" />
     <None Include="Assets\Demigiant\DOTween\DOTween43.xml" />
     <Reference Include="UnityEditor.StandardEvents">
-      <HintPath>D:/Unity Workspace/ModBod/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
+      <HintPath>D:/Unity Workspace/SpaceShooter/ModBod/Library/ScriptAssemblies/UnityEditor.StandardEvents.dll</HintPath>
     </Reference>
     <Reference Include="Unity.PackageManagerUI.Editor">
-      <HintPath>D:/Unity Workspace/ModBod/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
+      <HintPath>D:/Unity Workspace/SpaceShooter/ModBod/Library/ScriptAssemblies/Unity.PackageManagerUI.Editor.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.AIModule">
       <HintPath>D:/Program Files/Unity/Editor/Data/Managed/UnityEngine/UnityEngine.AIModule.dll</HintPath>
@@ -278,16 +278,16 @@
       <HintPath>D:/Program Files/Unity/Editor/Data/UnityExtensions/Unity/UnitySpatialTracking/RuntimeEditor/UnityEngine.SpatialTracking.dll</HintPath>
     </Reference>
     <Reference Include="DOTween">
-      <HintPath>D:/Unity Workspace/ModBod/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
+      <HintPath>D:/Unity Workspace/SpaceShooter/ModBod/Assets/Demigiant/DOTween/DOTween.dll</HintPath>
     </Reference>
     <Reference Include="DOTween43">
-      <HintPath>D:/Unity Workspace/ModBod/Assets/Demigiant/DOTween/DOTween43.dll</HintPath>
+      <HintPath>D:/Unity Workspace/SpaceShooter/ModBod/Assets/Demigiant/DOTween/DOTween43.dll</HintPath>
     </Reference>
     <Reference Include="DOTween46">
-      <HintPath>D:/Unity Workspace/ModBod/Assets/Demigiant/DOTween/DOTween46.dll</HintPath>
+      <HintPath>D:/Unity Workspace/SpaceShooter/ModBod/Assets/Demigiant/DOTween/DOTween46.dll</HintPath>
     </Reference>
     <Reference Include="DOTween50">
-      <HintPath>D:/Unity Workspace/ModBod/Assets/Demigiant/DOTween/DOTween50.dll</HintPath>
+      <HintPath>D:/Unity Workspace/SpaceShooter/ModBod/Assets/Demigiant/DOTween/DOTween50.dll</HintPath>
     </Reference>
     <Reference Include="UnityEngine.Analytics">
       <HintPath>C:/Users/Jessica/AppData/Local/Unity/cache/packages/packages.unity.com/com.unity.analytics@2.0.16/UnityEngine.Analytics.dll</HintPath>
