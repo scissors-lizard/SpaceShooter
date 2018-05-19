@@ -6,17 +6,12 @@ using UnityEngine;
 public class PlayerController : MonoBehaviour {
     [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float speed;
-    [SerializeField] private BodyPart[] bodyParts;
     [SerializeField] private float torque, rotDecelAngle;
+    [SerializeField] private Body body;
 
-    private void Awake()
+    private void Start()
     {
-        float sumMass = 0f;
-        for (int i = 0; i < bodyParts.Length; i++)
-        {
-            sumMass += bodyParts[i].mass;
-        }
-        rb.mass = sumMass;
+        rb.mass = body.mass;
     }
 
     // Update is called once per frame
@@ -45,19 +40,19 @@ public class PlayerController : MonoBehaviour {
 
             rb.angularVelocity = rotVel / rb.mass;
         }
-        
     }
 
     public void Lock()
     {
         rb.isKinematic = true;
-        this.enabled = false;
+        enabled = false;
+        body.SetBuildMode(true);
     }
 
     public void Unlock()
     {
         rb.isKinematic = false;
-        this.enabled = true;
-
+        enabled = true;
+        body.SetBuildMode(false);
     }
 }

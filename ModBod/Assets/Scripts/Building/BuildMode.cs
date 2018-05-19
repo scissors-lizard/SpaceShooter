@@ -4,8 +4,9 @@ using UnityEngine;
 
 public class BuildMode : MonoBehaviour {
     [SerializeField] private PlayerController player;
+    [SerializeField] private Body body;
     [SerializeField] private GameObject[] buildPiecePrefabs;
-    private BuildPiece curPiece;
+    private Buildable curBuildable;
 
 	// Use this for initialization
 	void OnEnable () {
@@ -15,16 +16,22 @@ public class BuildMode : MonoBehaviour {
 
     private void Update()
     {
-        if(curPiece == null || !curPiece.enabled)
+        if(curBuildable == null || !curBuildable.enabled)
         {
             GameObject o = Instantiate(buildPiecePrefabs[0]) as GameObject;
-            curPiece = o.GetComponent<BuildPiece>();
+            curBuildable = o.GetComponent<Buildable>();
+        }
+
+        if (Input.GetMouseButtonDown(1))
+        {
+            curBuildable.Attach();
         }
     }
 
     // Update is called once per frame
     void OnDisable () {
         player.Unlock();
-        Destroy(curPiece.gameObject);
+        body.SetBuildMode(false);
+        Destroy(curBuildable.gameObject);
     }
 }

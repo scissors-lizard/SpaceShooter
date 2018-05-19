@@ -5,7 +5,6 @@ using UnityEngine;
 public class BodyPart_Gun : BodyPart {
     [SerializeField] private GameObject projectilePrefab;
     [SerializeField] private Transform firePoint;
-    [SerializeField] private Rigidbody2D rb;
     [SerializeField] private float kickback;
     [SerializeField] private SpriteRenderer bodySprite;
 
@@ -30,7 +29,6 @@ public class BodyPart_Gun : BodyPart {
             projectile.transform.position = firePoint.position;
             projectile.transform.up = firePoint.transform.up;
 
-            rb.AddForceAtPosition(-transform.up * kickback, transform.position);
         }
             bodySprite.color = GetCurHealthColor();
     }

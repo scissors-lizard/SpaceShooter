@@ -62,10 +62,11 @@
     <Compile Include="Assets\Demigiant\DOTween\Examples\Basics.cs" />
     <Compile Include="Assets\Demigiant\DOTween\Examples\Sequences.cs" />
     <Compile Include="Assets\Scripts\BodyPart.cs" />
+    <Compile Include="Assets\Scripts\BodyPart_Core.cs" />
     <Compile Include="Assets\Scripts\BodyPart_Gun.cs" />
-    <Compile Include="Assets\Scripts\BodyPartCore.cs" />
+    <Compile Include="Assets\Scripts\Building\Body.cs" />
+    <Compile Include="Assets\Scripts\Building\Buildable.cs" />
     <Compile Include="Assets\Scripts\Building\BuildMode.cs" />
-    <Compile Include="Assets\Scripts\Building\BuildPiece.cs" />
     <Compile Include="Assets\Scripts\Building\Connector.cs" />
     <Compile Include="Assets\Scripts\Gameplay\IProjectileHandler.cs" />
     <Compile Include="Assets\Scripts\Gameplay\PlayerController.cs" />

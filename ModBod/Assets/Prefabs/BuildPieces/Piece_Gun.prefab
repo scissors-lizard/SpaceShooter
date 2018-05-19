@@ -167,6 +167,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   paired: {fileID: 0}
   graphic: {fileID: 212461596985836136}
+  part: {fileID: 0}
 --- !u!114 &114336267223383050
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -178,6 +179,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33ae4a1a03eaae74ea89538c11a0f28d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  part: {fileID: 0}
 --- !u!114 &114460543117743244
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -189,6 +191,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 736febbdde186724bbfe44a5c920ee24, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  parentPart: {fileID: 0}
   mass: 1
   maxHP: 5
   gradient:
@@ -220,7 +223,7 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
-  curHP: 0
+  curHP: 5
   projectilePrefab: {fileID: 1709123403598244, guid: 5aeeeb94dbfe706469ec0fae540da7eb,
     type: 2}
   firePoint: {fileID: 4320622370228856}
