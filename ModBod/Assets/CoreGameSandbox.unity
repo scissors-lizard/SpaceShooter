@@ -310,6 +310,7 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
+  deathFXPrefab: {fileID: 0}
   curHP: 10
   bodySprite: {fileID: 537243719}
 --- !u!61 &537243721

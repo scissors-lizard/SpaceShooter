@@ -91,7 +91,7 @@ MonoBehaviour:
   m_MinSize: {x: 200, y: 222}
   m_MaxSize: {x: 4000, y: 4022}
   vertical: 0
-  controlID: 125
+  controlID: 128
 --- !u!114 &5
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -179,7 +179,7 @@ MonoBehaviour:
   m_MinSize: {x: 713, y: 492}
   m_MaxSize: {x: 18008, y: 14042}
   vertical: 0
-  controlID: 45
+  controlID: 9
 --- !u!114 &9
 MonoBehaviour:
   m_ObjectHideFlags: 52
@@ -460,9 +460,9 @@ MonoBehaviour:
   m_isRotationLocked: 0
   m_AudioPlay: 0
   m_Position:
-    m_Target: {x: -3.6737425, y: 0.6007638, z: -0.082279496}
+    m_Target: {x: -2.6072106, y: 0.6213685, z: -0.054342806}
     speed: 2
-    m_Value: {x: -3.6737425, y: 0.6007638, z: -0.082279496}
+    m_Value: {x: -2.6072106, y: 0.6213685, z: -0.054342806}
   m_RenderMode: 0
   m_CameraMode:
     drawMode: 0
@@ -494,9 +494,9 @@ MonoBehaviour:
     speed: 2
     m_Value: {x: 0, y: 0, z: 0, w: 1}
   m_Size:
-    m_Target: 9.05393
+    m_Target: 6.2641788
     speed: 2
-    m_Value: 9.05393
+    m_Value: 6.2641788
   m_Ortho:
     m_Target: 1
     speed: 2
@@ -535,9 +535,9 @@ MonoBehaviour:
   m_PersistentViewDataDictionary: {fileID: 0}
   m_TreeViewState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 3a0a0000
+    m_SelectedIDs: 
     m_LastClickedID: 0
-    m_ExpandedIDs: 3eb9fffff0fbffff00000000fa0b0000400c0000
+    m_ExpandedIDs: 2ee8fffff0fbffff00000000fa0b0000400c0000
     m_RenameOverlay:
       m_UserAcceptedRename: 0
       m_Name: 
@@ -598,19 +598,19 @@ MonoBehaviour:
     m_ShowAllHits: 0
     m_SearchArea: 0
     m_Folders:
-    - Assets/Prefabs/BuildPieces
+    - Assets/Prefabs/FX
   m_ViewMode: 1
   m_StartGridSize: 64
   m_LastFolders:
-  - Assets/Prefabs/BuildPieces
+  - Assets/Prefabs/FX
   m_LastFoldersGridSize: -1
   m_LastProjectPath: D:\Unity Workspace\SpaceShooter\ModBod
   m_LockTracker:
     m_IsLocked: 0
   m_FolderTreeState:
     scrollPos: {x: 0, y: 0}
-    m_SelectedIDs: 3a0a0000
-    m_LastClickedID: 2618
+    m_SelectedIDs: 44310000
+    m_LastClickedID: 12612
     m_ExpandedIDs: 00000000f4080000e80900001e0b000000ca9a3bffffff7f
     m_RenameOverlay:
       m_UserAcceptedRename: 0

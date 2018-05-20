@@ -11,6 +11,7 @@ public abstract class BodyPart : MonoBehaviour, IProjectileHandler
 
     [SerializeField] private int maxHP;
     [SerializeField] private Gradient gradient;
+    [SerializeField] private GameObject deathFXPrefab;
 
     private Connector[] connectors;
 
@@ -68,6 +69,18 @@ public abstract class BodyPart : MonoBehaviour, IProjectileHandler
                 connectors[i].SetBuildMode(false);
             }
         }
+    }
+
+    protected virtual void OnKilled()
+    {
+        GameObject go = Instantiate(deathFXPrefab) as GameObject;
+        go.transform.position = transform.position;
+        for(int i = 0; i < children.Count; i++)
+        {
+            children[i].OnKilled();
+        }
+        body.RemovePart(this);
+        Destroy(gameObject);
     }
 
 }

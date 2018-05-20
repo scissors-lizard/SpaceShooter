@@ -15,7 +15,7 @@ public class BodyPart_Gun : BodyPart {
         curHP -= 1;
         if(curHP <= 0)
         {
-            Destroy(gameObject);
+            OnKilled();
         }
     }
 
@@ -30,6 +30,8 @@ public class BodyPart_Gun : BodyPart {
             projectile.transform.up = firePoint.transform.up;
 
         }
-            bodySprite.color = GetCurHealthColor();
+        bodySprite.color = GetCurHealthColor();
     }
+
+
 }
