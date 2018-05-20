@@ -10,7 +10,7 @@ public class BodyPart_Core : BodyPart {
         curHP -= 1;
         if (curHP <= 0)
         {
-            Destroy(gameObject);
+            OnKilled();
         }
     }
 
@@ -18,6 +18,16 @@ public class BodyPart_Core : BodyPart {
     private void Update()
     {
         bodySprite.color = GetCurHealthColor();
+    }
+
+    protected override void OnKilled()
+    {
+        for (int i = 0; i < 5; i++)
+        {
+            GameObject go = Instantiate(deathFXPrefab) as GameObject;
+            go.transform.position = transform.position + new Vector3(Random.value - 0.5f, Random.value - 0.5f, 0f);
+        }
+        Destroy(body.gameObject);
     }
 
 }
