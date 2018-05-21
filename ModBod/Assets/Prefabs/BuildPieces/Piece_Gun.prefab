@@ -22,7 +22,7 @@ GameObject:
   - component: {fileID: 212871968561917074}
   - component: {fileID: 114118654370605500}
   - component: {fileID: 61934228209264758}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Connector
   m_TagString: Connector
   m_Icon: {fileID: 0}
@@ -40,7 +40,7 @@ GameObject:
   - component: {fileID: 212828464153269160}
   - component: {fileID: 114917223535409418}
   - component: {fileID: 61960700553991356}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Connector
   m_TagString: Connector
   m_Icon: {fileID: 0}
@@ -55,7 +55,7 @@ GameObject:
   serializedVersion: 5
   m_Component:
   - component: {fileID: 4320622370228856}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: FirePoint
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -74,7 +74,7 @@ GameObject:
   - component: {fileID: 114460543117743244}
   - component: {fileID: 61863682210088372}
   - component: {fileID: 114336267223383050}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Piece_Gun
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -92,7 +92,7 @@ GameObject:
   - component: {fileID: 212461596985836136}
   - component: {fileID: 114195996983720022}
   - component: {fileID: 61396250467621858}
-  m_Layer: 0
+  m_Layer: 12
   m_Name: Connector
   m_TagString: Connector
   m_Icon: {fileID: 0}
@@ -322,6 +322,8 @@ MonoBehaviour:
   body: {fileID: 0}
   parentPart: {fileID: 0}
   mass: 1
+  deathFXPrefab: {fileID: 1942595174916314, guid: 635349cd93275a04f9913f7b5ff90591,
+    type: 2}
   maxHP: 5
   gradient:
     serializedVersion: 2
@@ -352,8 +354,6 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
-  deathFXPrefab: {fileID: 1942595174916314, guid: 635349cd93275a04f9913f7b5ff90591,
-    type: 2}
   curHP: 5
   projectilePrefab: {fileID: 1709123403598244, guid: 5aeeeb94dbfe706469ec0fae540da7eb,
     type: 2}

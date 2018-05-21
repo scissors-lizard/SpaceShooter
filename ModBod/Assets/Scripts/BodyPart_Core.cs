@@ -12,6 +12,7 @@ public class BodyPart_Core : BodyPart {
         {
             OnKilled();
         }
+        Destroy(p.gameObject);
     }
 
 
