@@ -61,6 +61,7 @@
   <ItemGroup>
     <Compile Include="Assets\Demigiant\DOTween\Examples\Basics.cs" />
     <Compile Include="Assets\Demigiant\DOTween\Examples\Sequences.cs" />
+    <Compile Include="Assets\Scripts\BodyGrid.cs" />
     <Compile Include="Assets\Scripts\BodyPart.cs" />
     <Compile Include="Assets\Scripts\BodyPart_Core.cs" />
     <Compile Include="Assets\Scripts\BodyPart_Gun.cs" />
@@ -68,6 +69,9 @@
     <Compile Include="Assets\Scripts\Building\Buildable.cs" />
     <Compile Include="Assets\Scripts\Building\BuildMode.cs" />
     <Compile Include="Assets\Scripts\Building\Connector.cs" />
+    <Compile Include="Assets\Scripts\Building\Dir.cs" />
+    <Compile Include="Assets\Scripts\Building\DirExtension.cs" />
+    <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\FX\SingleShotFX.cs" />
     <Compile Include="Assets\Scripts\Gameplay\BasicEnemy.cs" />
     <Compile Include="Assets\Scripts\Gameplay\IProjectileHandler.cs" />

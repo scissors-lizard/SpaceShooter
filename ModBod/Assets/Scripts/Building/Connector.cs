@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using UnityEngine;
 
 public class Connector : MonoBehaviour {
+    [SerializeField] protected Dir localDir;
     [SerializeField] private Connector paired;
     [SerializeField] private SpriteRenderer graphic;
 

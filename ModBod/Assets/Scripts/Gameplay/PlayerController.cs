@@ -40,6 +40,7 @@ public class PlayerController : MonoBehaviour {
 
             rb.angularVelocity = rotVel / rb.mass;
         }
+        rb.centerOfMass = Vector2.zero;
     }
 
     public void Lock()
