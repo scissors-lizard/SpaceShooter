@@ -46,6 +46,9 @@ public class PlayerController : MonoBehaviour {
     public void Lock()
     {
         rb.isKinematic = true;
+        rb.velocity = Vector2.zero;
+        rb.angularVelocity = 0f;
+
         enabled = false;
         body.SetBuildMode(true);
     }

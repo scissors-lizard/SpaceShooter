@@ -6,7 +6,9 @@ public class BuildMode : MonoBehaviour {
     [SerializeField] private PlayerController player;
     [SerializeField] private Body body;
     [SerializeField] private GameObject[] buildPiecePrefabs;
+
     private Buildable curBuildable;
+    private Vector2 lastBuildableRotation; 
 
 	// Use this for initialization
 	void OnEnable () {
@@ -24,6 +26,7 @@ public class BuildMode : MonoBehaviour {
 
         if (Input.GetMouseButtonDown(1))
         {
+            lastBuildableRotation = curBuildable.transform.up;
             curBuildable.Attach();
         }
     }

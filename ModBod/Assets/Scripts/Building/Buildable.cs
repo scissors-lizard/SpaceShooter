@@ -16,15 +16,21 @@ public class Buildable : MonoBehaviour {
     private Connector mySnappingConnector, otherSnappingConnector;
 
 
-	// Use this for initialization
-	void Start () {
+    private void Awake()
+    {
         cam = Camera.main;
+        Update();
+    }
+
+    // Use this for initialization
+    void Start () {
         part = GetComponent<BodyPart>();
         part.SetBuildMode(true);
     }
-	
-	// Update is called once per frame
-	void Update () {
+
+
+    // Update is called once per frame
+    void Update () {
         if (!snapping)
         {
             Vector3 pos = cam.ScreenToWorldPoint(Input.mousePosition);
@@ -40,6 +46,8 @@ public class Buildable : MonoBehaviour {
             }
         }
 	}
+
+
 
     public void Snap(Connector myConnector, Connector otherConnector)
     {
