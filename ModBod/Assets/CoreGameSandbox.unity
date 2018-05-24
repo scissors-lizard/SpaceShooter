@@ -149,8 +149,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4196e15ee4a6242418935c37414eca9b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  lookOffsetMagnitude: 0
+  lookOffsetMagnitude: 0.1
   target: {fileID: 2097393159}
+  cam: {fileID: 519420031}
+  dampTime: 0.15
 --- !u!20 &519420031
 Camera:
   m_ObjectHideFlags: 0
@@ -1305,9 +1307,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   rb: {fileID: 2097393158}
-  speed: 200
+  speed: 400
   torque: 2000
-  rotDecelAngle: 15
+  rotDecelAngle: 45
   body: {fileID: 2097393161}
 --- !u!114 &2097393161
 MonoBehaviour:

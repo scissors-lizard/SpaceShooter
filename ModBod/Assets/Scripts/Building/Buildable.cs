@@ -36,7 +36,7 @@ public class Buildable : MonoBehaviour {
             Vector3 pos = cam.ScreenToWorldPoint(Input.mousePosition);
             pos.z = transform.position.z;
             transform.position = pos;
-            transform.Rotate(0f, 0f, Input.GetAxis("Scroll") * Time.deltaTime * 5000f); 
+            transform.Rotate(0f, 0f, Input.GetAxis("Scroll") * Time.deltaTime * 7000f); 
         }
         else // snapping
         {
