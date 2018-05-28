@@ -6,6 +6,7 @@ public class BuildMode : MonoBehaviour {
     [SerializeField] private PlayerController player;
     [SerializeField] private Body body;
     [SerializeField] private GameObject[] buildPiecePrefabs;
+    [SerializeField] private GameObject buildCursor;
 
     private Buildable curBuildable;
     private Vector2 lastBuildableRotation; 
@@ -29,6 +30,12 @@ public class BuildMode : MonoBehaviour {
             lastBuildableRotation = curBuildable.transform.up;
             curBuildable.Attach();
         }
+        BuildCell cell = body.GetCellAtPos(Camera.main.ScreenToWorldPoint(Input.mousePosition));
+        if(cell != null)
+        {
+            buildCursor.transform.position = body.transform.TransformPoint(cell.localPos);
+        }
+
     }
 
     // Update is called once per frame

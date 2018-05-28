@@ -67,6 +67,7 @@
     <Compile Include="Assets\Scripts\BodyPart_Gun.cs" />
     <Compile Include="Assets\Scripts\Building\Body.cs" />
     <Compile Include="Assets\Scripts\Building\Buildable.cs" />
+    <Compile Include="Assets\Scripts\Building\BuildCell.cs" />
     <Compile Include="Assets\Scripts\Building\BuildMode.cs" />
     <Compile Include="Assets\Scripts\Building\Connector.cs" />
     <Compile Include="Assets\Scripts\Building\Dir.cs" />

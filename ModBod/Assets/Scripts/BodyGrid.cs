@@ -4,36 +4,48 @@ using UnityEngine;
 
 public class BodyGrid : MonoBehaviour{
     private int cols, rows; // How much memory to allocate
-    private GridCell[,] grid;
+    private BuildCell[,] grid;
     private float cellSize;
 
-    public BodyGrid(int cols,int rows, float cellSize)
+    public void Initialize(int cols,int rows, float cellSize)
     {
         this.cols = cols;
         this.rows = rows;
         this.cellSize = cellSize;
 
-        grid = new GridCell[cols, rows];
+        grid = new BuildCell[cols, rows];
 
         for(int i = 0; i < cols; i++)
         {
             for(int j = 0; j < rows; j++)
             {
-                grid[i,j] = new GridCell();
+                grid[i,j] = new BuildCell();
+                grid[i, j].col = i;
+                grid[i, j].row = j;
+                grid[i,j].localPos = new Vector3((i - cols / 2) * cellSize - cellSize * 0.5f, (j - rows / 2) * cellSize - cellSize * 0.5f, 0f);
             }
         }
     }
 
-    public BodyPart GetPartAt(int x, int y)
+    public BodyPart GetPartAt(int col, int row)
     {
-        if(x>0 && x < cols && y>0 && y<rows)
+        if(col>0 && col < cols && row>0 && row<rows)
         {
-            return grid[x,y].part;
+            return grid[col,row].part;
         }
         else
         {
             return null;
         }
+    }
+
+    public BuildCell GetCellAt(int col, int row)
+    {
+        if(col >= 0 && col < cols && row >= 0 && row < rows)
+        {
+            return grid[col, row];
+        }
+        return null;
     }
 
     public void SetBodyPart(int x, int y, BodyPart part, Dir facing = Dir.N)
@@ -159,20 +171,4 @@ public class BodyGrid : MonoBehaviour{
         return adjacentParts > 0;
     }
 
-    
-
-
-    private class GridCell
-    {
-        public BodyPart part;
-        public bool[] validConnectors;
-        public BodyPart[] connectedParts;
-
-        public GridCell()
-        {
-            part = null;
-            validConnectors = new bool[] { false, false, false, false };
-            connectedParts = new BodyPart[] {null, null, null, null};
-        }
-    }
 }

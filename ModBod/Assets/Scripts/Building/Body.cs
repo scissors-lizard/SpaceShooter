@@ -10,8 +10,7 @@ public class Body : MonoBehaviour {
     [SerializeField] private float cellSize;
     [SerializeField] private BodyPart core;
     [SerializeField] private GameObject buildSlotHighlightPrefab;
-    
-    private BodyGrid grid;
+    [SerializeField] private BodyGrid grid;
     private List<GameObject> highlights;
 
     // Use this for initialization
@@ -21,7 +20,7 @@ public class Body : MonoBehaviour {
         {
             bodyParts[i].body = this;
         }
-        grid = new BodyGrid(maxCols, maxRows, cellSize);
+        grid.Initialize(maxCols, maxRows, cellSize);
 
         int centerCol = maxCols / 2, centerRow = maxRows / 2;
 
@@ -92,6 +91,7 @@ public class Body : MonoBehaviour {
         {
             for (int j = 0; j < maxRows; j++)
             {
+
                 if(grid.CheckValidBuildPos(i, j)){
                     GameObject highlight = Instantiate(buildSlotHighlightPrefab) as GameObject;
                     highlight.transform.SetParent(transform);
@@ -109,5 +109,15 @@ public class Body : MonoBehaviour {
         {
             Destroy(highlights[i]);
         }
+    }
+
+    public BuildCell GetCellAtPos(Vector3 pos)
+    {
+        Vector3 localPos = transform.InverseTransformPoint(pos);
+        int gridX = Mathf.CeilToInt(localPos.x / cellSize) + maxCols/2;
+        int gridY = Mathf.CeilToInt(localPos.y / cellSize) + maxRows/2;
+        BuildCell c = grid.GetCellAt(gridX, gridY);
+        Debug.Log("NAWL? "+(c == null)); 
+        return grid.GetCellAt(gridX, gridY);
     }
 }
