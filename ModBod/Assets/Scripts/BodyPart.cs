@@ -9,8 +9,8 @@ public abstract class BodyPart : MonoBehaviour, IProjectileHandler
     public BodyPart parentPart;
     public float mass;
 
+    public bool[] validConnectors;
     [SerializeField] protected GameObject deathFXPrefab;
-
     [SerializeField] private int maxHP;
     [SerializeField] private Gradient gradient;
 

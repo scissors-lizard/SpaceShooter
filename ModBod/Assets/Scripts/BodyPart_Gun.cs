@@ -31,6 +31,7 @@ public class BodyPart_Gun : BodyPart {
 
         }
         bodySprite.color = GetCurHealthColor();
+
     }
 
 

@@ -41,6 +41,77 @@ public static class DirExtension {
         }
     }
 
+    /// <summary>
+    /// 
+    /// </summary>
+    /// <param name="d">first dir</param>
+    /// <param name="other">second dir</param>
+    /// <returns>How many clockwise 90-degree steps there between the two directions (ex. N and S will return 2, since they are 180 degreees apart.</returns>
+    public static int RotSteps(this Dir d, Dir other)
+    {
+        if(other == d)
+        {
+            return 0;
+        }
+        switch (d)
+        {
+            case Dir.N:
+                if (other == Dir.E) {
+                    return 1;
+                }
+                else if (other == Dir.S)
+                {
+                    return 2;
+                }
+                else
+                {
+                    return 3;
+                }
+
+            case Dir.E:
+                if (other == Dir.S)
+                {
+                    return 1;
+                }
+                else if (other == Dir.W)
+                {
+                    return 2;
+                }
+                else
+                {
+                    return 3;
+                }
+
+            case Dir.S:
+                if (other == Dir.W)
+                {
+                    return 1;
+                }
+                else if (other == Dir.N)
+                {
+                    return 2;
+                }
+                else
+                {
+                    return 3;
+                }
+
+            default: // W
+                if (other == Dir.N)
+                {
+                    return 1;
+                }
+                else if (other == Dir.E)
+                {
+                    return 2;
+                }
+                else 
+                {
+                    return 3;
+                }
+        }
+    }
+
     public static Vector2 ToVector2(this Dir d)
     {
         switch (d)

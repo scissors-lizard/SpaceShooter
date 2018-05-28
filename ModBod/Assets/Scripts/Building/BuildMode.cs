@@ -13,7 +13,7 @@ public class BuildMode : MonoBehaviour {
 	// Use this for initialization
 	void OnEnable () {
         player.Lock();
-
+        body.SetBuildMode(true);
     }
 
     private void Update()

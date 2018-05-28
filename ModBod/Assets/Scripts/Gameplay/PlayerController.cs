@@ -50,13 +50,11 @@ public class PlayerController : MonoBehaviour {
         rb.angularVelocity = 0f;
 
         enabled = false;
-        body.SetBuildMode(true);
     }
 
     public void Unlock()
     {
         rb.isKinematic = false;
         enabled = true;
-        body.SetBuildMode(false);
     }
 }
