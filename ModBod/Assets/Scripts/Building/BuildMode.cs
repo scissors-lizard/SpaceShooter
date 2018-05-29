@@ -26,17 +26,11 @@ public class BuildMode : Singleton<BuildMode> {
             curBuildable = o.GetComponent<Buildable>();
         }
 
-        if (Input.GetMouseButtonDown(1))
-        {
-            lastBuildableRotation = curBuildable.transform.up;
-            curBuildable.Attach();
-        }
         BuildCell cell = body.GetCellAtPos(Camera.main.ScreenToWorldPoint(Input.mousePosition));
         if(cell != null)
         {
             buildCursor.transform.position = body.transform.TransformPoint(cell.localPos);
         }
-
     }
 
     // Update is called once per frame

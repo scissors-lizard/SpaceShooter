@@ -9,7 +9,6 @@ public class Buildable : MonoBehaviour {
     public BodyPart part;
 
     private Camera cam;
-    private Connector[] connectors;
     private bool snapping = false;
     private GameObject colliderHolder;
     private Vector2 lastSnapPos;
@@ -18,6 +17,8 @@ public class Buildable : MonoBehaviour {
     private BuildCell targetCell;
     private Vector3 mouseWorldPos;
     private Vector2 desiredUp;
+    private Dir targetDir;
+    private bool targetingValidPlacement = false;
 
     private void Awake()
     {
@@ -46,9 +47,17 @@ public class Buildable : MonoBehaviour {
         {
             targetPos = body.transform.TransformPoint(targetCell.localPos);
             Vector2 localVec = body.transform.InverseTransformDirection(desiredUp);
-            Dir targetDir = VectorToNearestDir(localVec);
+            targetDir = VectorToNearestDir(localVec);
             targetRot = body.transform.TransformDirection(targetDir.ToVector2());
+
+            CheckValidPlacement();
+
+            if (targetingValidPlacement && Input.GetMouseButtonDown(1))
+            {
+                Attach();
+            }
         }
+
         UpdateTransform();
 	}
 
@@ -99,47 +108,34 @@ public class Buildable : MonoBehaviour {
     {
         mouseWorldPos = cam.ScreenToWorldPoint(Input.mousePosition);
         mouseWorldPos.z = 0f;
-        if (body.CheckValidBuildPos(mouseWorldPos)) { 
+        if (body.IsMouseOverValidSlot(mouseWorldPos)) { 
             targetCell = body.GetCellAtPos(mouseWorldPos);
             snapping = true;
         }
         else
         {
             snapping = false;
+            targetingValidPlacement = false;
         }
     }
 
-    public void Snap(Connector myConnector, Connector otherConnector)
+    void CheckValidPlacement()
     {
-        if (!snapping)
-        {
-            snapping = true;
+        targetingValidPlacement = body.CheckValidPlacement(targetCell, part, targetDir);
 
-            Vector2 targetDir = -otherConnector.transform.up;
-            Vector2 forward = myConnector.transform.up;
-
-            float angle = Vector2.SignedAngle(forward, targetDir);
-            transform.Rotate(0f, 0f, angle);
-            Vector3 offset = otherConnector.transform.position - myConnector.transform.position;
-            transform.position += offset;
-
-            lastSnapPos = cam.ScreenToWorldPoint(Input.mousePosition);
-
-//            mySnappingConnector = myConnector;
-//            otherSnappingConnector = otherConnector;
-        }
     }
 
     public void Attach()
     {
         if (snapping)
         {
- //           mySnappingConnector.Pair(otherSnappingConnector);
- //           otherSnappingConnector.Pair(mySnappingConnector);
- //           part.parentPart = otherSnappingConnector.part;
- //           otherSnappingConnector.part.AddChildPart(part);
- //           part.body = otherSnappingConnector.part.body;
-            part.body.AddPart(part);
+
+            transform.position = targetPos;
+            transform.up = targetRot;
+            part.body = body;
+            part.gridCell = targetCell;
+            body.AddPart(part, targetCell.col, targetCell.row, targetDir);
+            body.UpdateHighlights();
 
             Destroy(this);
         }

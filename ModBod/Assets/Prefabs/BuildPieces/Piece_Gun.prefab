@@ -38,6 +38,7 @@ GameObject:
   - component: {fileID: 114460543117743244}
   - component: {fileID: 61863682210088372}
   - component: {fileID: 114336267223383050}
+  - component: {fileID: 114629687880074422}
   m_Layer: 12
   m_Name: Piece_Gun
   m_TagString: Untagged
@@ -123,11 +124,28 @@ MonoBehaviour:
   body: {fileID: 0}
   parentPart: {fileID: 0}
   mass: 1
-  validConnectors: 
+  maxHP: 5
+  curHP: 5
+  validConnectors: 00010101
   deathFXPrefab: {fileID: 1942595174916314, guid: 635349cd93275a04f9913f7b5ff90591,
     type: 2}
-  maxHP: 5
-  gradient:
+  projectilePrefab: {fileID: 1709123403598244, guid: 5aeeeb94dbfe706469ec0fae540da7eb,
+    type: 2}
+  firePoint: {fileID: 4320622370228856}
+  kickback: 10
+  bodySprite: {fileID: 212516372408558410}
+--- !u!114 &114629687880074422
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1355002814624426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3ed8b77eba85b3a4894b6e8161c10f4c, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  colorGradient:
     serializedVersion: 2
     key0: {r: 1, g: 0, b: 0, a: 1}
     key1: {r: 0.9624374, g: 1, b: 0, a: 1}
@@ -156,12 +174,8 @@ MonoBehaviour:
     m_Mode: 0
     m_NumColorKeys: 3
     m_NumAlphaKeys: 2
-  curHP: 5
-  projectilePrefab: {fileID: 1709123403598244, guid: 5aeeeb94dbfe706469ec0fae540da7eb,
-    type: 2}
-  firePoint: {fileID: 4320622370228856}
-  kickback: 10
-  bodySprite: {fileID: 212516372408558410}
+  part: {fileID: 114460543117743244}
+  sprite: {fileID: 212516372408558410}
 --- !u!212 &212516372408558410
 SpriteRenderer:
   m_ObjectHideFlags: 1

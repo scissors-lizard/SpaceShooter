@@ -8,15 +8,12 @@ public abstract class BodyPart : MonoBehaviour, IProjectileHandler
     public Body body;
     public BodyPart parentPart;
     public float mass;
-
-    public bool[] validConnectors;
-    [SerializeField] protected GameObject deathFXPrefab;
-    [SerializeField] private int maxHP;
-    [SerializeField] private Gradient gradient;
-
-    private Connector[] connectors;
-
+    public int maxHP;
     public int curHP;
+    public bool[] validConnectors;
+    public BuildCell gridCell;
+
+    [SerializeField] protected GameObject deathFXPrefab;
 
     private List<BodyPart> children;
 
@@ -24,16 +21,6 @@ public abstract class BodyPart : MonoBehaviour, IProjectileHandler
     {
         curHP = maxHP;
         children = new List<BodyPart>();
-    }
-
-    void Start()
-    {
-        connectors = GetComponentsInChildren<Connector>();
-    }
-
-    public Color GetCurHealthColor()
-    {
-        return gradient.Evaluate((float)curHP / maxHP);
     }
 
     public virtual void OnProjectileHit(Projectile p)
@@ -57,18 +44,11 @@ public abstract class BodyPart : MonoBehaviour, IProjectileHandler
         if (isOn)
         {
             enabled = false;
-            for (int i = 0; i < connectors.Length; i++)
-            {
-                connectors[i].SetBuildMode(true);
-            }
         }
         else
         {
             enabled = true;
-            for(int i = 0; i < connectors.Length; i++)
-            {
-                connectors[i].SetBuildMode(false);
-            }
+
         }
     }
 

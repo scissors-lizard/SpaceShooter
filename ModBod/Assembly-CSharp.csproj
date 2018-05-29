@@ -69,12 +69,13 @@
     <Compile Include="Assets\Scripts\Building\Buildable.cs" />
     <Compile Include="Assets\Scripts\Building\BuildCell.cs" />
     <Compile Include="Assets\Scripts\Building\BuildMode.cs" />
-    <Compile Include="Assets\Scripts\Building\Connector.cs" />
     <Compile Include="Assets\Scripts\Building\Dir.cs" />
     <Compile Include="Assets\Scripts\Building\DirExtension.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\FX\SingleShotFX.cs" />
+    <Compile Include="Assets\Scripts\FX\SpriteCycle.cs" />
     <Compile Include="Assets\Scripts\Gameplay\BasicEnemy.cs" />
+    <Compile Include="Assets\Scripts\Gameplay\HealthColorSetter.cs" />
     <Compile Include="Assets\Scripts\Gameplay\IProjectileHandler.cs" />
     <Compile Include="Assets\Scripts\Gameplay\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Projectile.cs" />

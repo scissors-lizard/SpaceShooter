@@ -15,12 +15,6 @@ public class BodyPart_Core : BodyPart {
         Destroy(p.gameObject);
     }
 
-
-    private void Update()
-    {
-        bodySprite.color = GetCurHealthColor();
-    }
-
     protected override void OnKilled()
     {
         for (int i = 0; i < 5; i++)

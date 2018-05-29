@@ -30,9 +30,5 @@ public class BodyPart_Gun : BodyPart {
             projectile.transform.up = firePoint.transform.up;
 
         }
-        bodySprite.color = GetCurHealthColor();
-
     }
-
-
 }

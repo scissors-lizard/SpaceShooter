@@ -44,10 +44,11 @@ public class Body : MonoBehaviour {
         SetBuildMode(false);
     }
 
-    public void AddPart(BodyPart p)
+    public void AddPart(BodyPart p, int col, int row, Dir rot)
     {
         bodyParts.Add(p);
         p.transform.SetParent(transform);
+        grid.SetBodyPart(col, row, p, rot);
         RecalculateMass();
     }
 
@@ -55,8 +56,13 @@ public class Body : MonoBehaviour {
     {
         bodyParts.Remove(p);
         p.transform.SetParent(null);
-
+        CheckIntegrity();
         RecalculateMass();
+    }
+
+    private void CheckIntegrity()
+    {
+        // Check structural integrity, destroy any isolated segments
     }
 
     private void RecalculateMass()
@@ -83,6 +89,12 @@ public class Body : MonoBehaviour {
         {
             DestroyHighlights();
         }
+    }
+
+    public void UpdateHighlights()
+    {
+        DestroyHighlights();
+        CreateHighlights();
     }
 
     private void CreateHighlights()
@@ -120,7 +132,7 @@ public class Body : MonoBehaviour {
         return grid.GetCellAt(gridX, gridY);
     }
 
-    public bool CheckValidBuildPos(Vector3 pos)
+    public bool IsMouseOverValidSlot(Vector3 pos)
     {
         BuildCell c = GetCellAtPos(pos);
         if(c == null)
@@ -128,5 +140,10 @@ public class Body : MonoBehaviour {
             return false;
         }
         return grid.CheckValidBuildPos(c.col, c.row);
+    }
+
+    public bool CheckValidPlacement(BuildCell cell, BodyPart part, Dir facing)
+    {
+        return true;
     }
 }
