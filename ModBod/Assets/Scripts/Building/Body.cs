@@ -117,7 +117,16 @@ public class Body : MonoBehaviour {
         int gridX = Mathf.CeilToInt(localPos.x / cellSize) + maxCols/2;
         int gridY = Mathf.CeilToInt(localPos.y / cellSize) + maxRows/2;
         BuildCell c = grid.GetCellAt(gridX, gridY);
-        Debug.Log("NAWL? "+(c == null)); 
         return grid.GetCellAt(gridX, gridY);
+    }
+
+    public bool CheckValidBuildPos(Vector3 pos)
+    {
+        BuildCell c = GetCellAtPos(pos);
+        if(c == null)
+        {
+            return false;
+        }
+        return grid.CheckValidBuildPos(c.col, c.row);
     }
 }

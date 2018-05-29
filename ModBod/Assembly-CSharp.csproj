@@ -79,6 +79,8 @@
     <Compile Include="Assets\Scripts\Gameplay\PlayerController.cs" />
     <Compile Include="Assets\Scripts\Gameplay\Projectile.cs" />
     <Compile Include="Assets\Scripts\GameplayManager.cs" />
+    <Compile Include="Assets\Scripts\Util\MonoBehaviourExtended.cs" />
+    <Compile Include="Assets\Scripts\Util\Singleton.cs" />
     <None Include="Assets\Demigiant\DOTween\readme.txt" />
     <None Include="Assets\Demigiant\DOTween\DOTween50.xml" />
     <None Include="Assets\Demigiant\DOTween\DOTween46.xml" />

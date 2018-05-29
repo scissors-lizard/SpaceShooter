@@ -13,41 +13,101 @@ public class Buildable : MonoBehaviour {
     private bool snapping = false;
     private GameObject colliderHolder;
     private Vector2 lastSnapPos;
-    private Connector mySnappingConnector, otherSnappingConnector;
-
+    private Vector3 targetPos, targetRot;
+    private Body body;
+    private BuildCell targetCell;
+    private Vector3 mouseWorldPos;
+    private Vector2 desiredUp;
 
     private void Awake()
     {
         cam = Camera.main;
-        Update();
     }
 
     // Use this for initialization
     void Start () {
         part = GetComponent<BodyPart>();
         part.SetBuildMode(true);
+        body = BuildMode.Instance.body;
+        desiredUp = Vector2.up;
     }
 
 
     // Update is called once per frame
     void Update () {
+        CheckMousePos();
+        desiredUp = Quaternion.Euler(0f,0f,-Input.GetAxis("Scroll") * Time.deltaTime * 7000f) * desiredUp;
         if (!snapping)
         {
-            Vector3 pos = cam.ScreenToWorldPoint(Input.mousePosition);
-            pos.z = transform.position.z;
-            transform.position = pos;
-            transform.Rotate(0f, 0f, Input.GetAxis("Scroll") * Time.deltaTime * 7000f); 
+            targetPos = mouseWorldPos;
+            targetRot = desiredUp;
         }
         else // snapping
         {
-            if(Vector2.Distance(cam.ScreenToWorldPoint(Input.mousePosition), lastSnapPos) > 0.75f)
-            {
-                snapping = false;
-            }
+            targetPos = body.transform.TransformPoint(targetCell.localPos);
+            Vector2 localVec = body.transform.InverseTransformDirection(desiredUp);
+            Dir targetDir = VectorToNearestDir(localVec);
+            targetRot = body.transform.TransformDirection(targetDir.ToVector2());
         }
+        UpdateTransform();
 	}
 
+    public static Dir VectorToNearestDir(Vector2 direction)
+    {
+        Dir retVal = Dir.N; // default
+        float highest = -2f;
+        Vector2 normDir = direction.normalized;
 
+        float dp = Vector2.Dot(normDir, Dir.N.ToVector2());
+        if (dp > highest)
+        {
+            highest = dp;
+            retVal = Dir.N;
+        }
+
+        dp = Vector2.Dot(normDir, Dir.E.ToVector2());
+        if (dp > highest)
+        {
+            highest = dp;
+            retVal = Dir.E;
+        }
+
+        dp = Vector2.Dot(normDir, Dir.S.ToVector2());
+        if (dp > highest)
+        {
+            highest = dp;
+            retVal = Dir.S;
+        }
+
+        dp = Vector2.Dot(normDir, Dir.W.ToVector2());
+        if (dp > highest)
+        {
+            highest = dp;
+            retVal = Dir.W;
+        }
+
+        return retVal;
+    }
+
+    void UpdateTransform()
+    {
+        transform.position = Vector3.Lerp(transform.position, targetPos, Time.deltaTime * 8f);
+        transform.up = Vector3.Lerp(transform.up, targetRot, Time.deltaTime * 16f);
+    }
+
+    private void CheckMousePos()
+    {
+        mouseWorldPos = cam.ScreenToWorldPoint(Input.mousePosition);
+        mouseWorldPos.z = 0f;
+        if (body.CheckValidBuildPos(mouseWorldPos)) { 
+            targetCell = body.GetCellAtPos(mouseWorldPos);
+            snapping = true;
+        }
+        else
+        {
+            snapping = false;
+        }
+    }
 
     public void Snap(Connector myConnector, Connector otherConnector)
     {
@@ -65,8 +125,8 @@ public class Buildable : MonoBehaviour {
 
             lastSnapPos = cam.ScreenToWorldPoint(Input.mousePosition);
 
-            mySnappingConnector = myConnector;
-            otherSnappingConnector = otherConnector;
+//            mySnappingConnector = myConnector;
+//            otherSnappingConnector = otherConnector;
         }
     }
 
@@ -74,11 +134,11 @@ public class Buildable : MonoBehaviour {
     {
         if (snapping)
         {
-            mySnappingConnector.Pair(otherSnappingConnector);
-            otherSnappingConnector.Pair(mySnappingConnector);
-            part.parentPart = otherSnappingConnector.part;
-            otherSnappingConnector.part.AddChildPart(part);
-            part.body = otherSnappingConnector.part.body;
+ //           mySnappingConnector.Pair(otherSnappingConnector);
+ //           otherSnappingConnector.Pair(mySnappingConnector);
+ //           part.parentPart = otherSnappingConnector.part;
+ //           otherSnappingConnector.part.AddChildPart(part);
+ //           part.body = otherSnappingConnector.part.body;
             part.body.AddPart(part);
 
             Destroy(this);

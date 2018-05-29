@@ -2,9 +2,10 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BuildMode : MonoBehaviour {
+public class BuildMode : Singleton<BuildMode> {
+    public Body body;
+
     [SerializeField] private PlayerController player;
-    [SerializeField] private Body body;
     [SerializeField] private GameObject[] buildPiecePrefabs;
     [SerializeField] private GameObject buildCursor;
 
