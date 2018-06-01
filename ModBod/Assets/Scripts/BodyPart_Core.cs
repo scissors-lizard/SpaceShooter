@@ -10,12 +10,12 @@ public class BodyPart_Core : BodyPart {
         curHP -= 1;
         if (curHP <= 0)
         {
-            OnKilled();
+            Kill();
         }
         Destroy(p.gameObject);
     }
 
-    protected override void OnKilled()
+    public override void Kill()
     {
         for (int i = 0; i < 5; i++)
         {

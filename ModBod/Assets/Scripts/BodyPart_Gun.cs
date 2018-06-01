@@ -15,7 +15,7 @@ public class BodyPart_Gun : BodyPart {
         curHP -= 1;
         if(curHP <= 0)
         {
-            OnKilled();
+            Kill();
         }
     }
 
@@ -28,7 +28,6 @@ public class BodyPart_Gun : BodyPart {
             GameObject projectile = Instantiate(projectilePrefab) as GameObject;
             projectile.transform.position = firePoint.position;
             projectile.transform.up = firePoint.transform.up;
-
         }
     }
 }

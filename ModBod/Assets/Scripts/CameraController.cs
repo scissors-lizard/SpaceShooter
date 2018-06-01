@@ -26,9 +26,6 @@ public class CameraController : MonoBehaviour {
         targetPos = new Vector3(target.position.x,target.position.y,zPos) + (mousePos - target.position) * lookOffsetMagnitude;
         //transform.position = Vector3.Lerp(transform.position, targetPos, Time.deltaTime * 5f);
 
-
-
-
         Vector3 point = cam.WorldToViewportPoint(targetPos);
         Vector3 delta = targetPos - cam.ViewportToWorldPoint(new Vector3(0.5f, 0.5f, point.z)); //(new Vector3(0.5, 0.5, point.z));
         Vector3 destination = transform.position + delta;

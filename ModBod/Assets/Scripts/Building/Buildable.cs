@@ -50,7 +50,7 @@ public class Buildable : MonoBehaviour {
             targetDir = VectorToNearestDir(localVec);
             targetRot = body.transform.TransformDirection(targetDir.ToVector2());
 
-            CheckValidPlacement();
+            targetingValidPlacement = body.CheckValidPlacement(targetCell, part, targetDir);
 
             if (targetingValidPlacement && Input.GetMouseButtonDown(1))
             {
@@ -119,11 +119,6 @@ public class Buildable : MonoBehaviour {
         }
     }
 
-    void CheckValidPlacement()
-    {
-        targetingValidPlacement = body.CheckValidPlacement(targetCell, part, targetDir);
-
-    }
 
     public void Attach()
     {

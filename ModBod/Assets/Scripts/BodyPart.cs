@@ -6,7 +6,6 @@ using UnityEngine.SceneManagement;
 public abstract class BodyPart : MonoBehaviour, IProjectileHandler
 {
     public Body body;
-    public BodyPart parentPart;
     public float mass;
     public int maxHP;
     public int curHP;
@@ -15,12 +14,9 @@ public abstract class BodyPart : MonoBehaviour, IProjectileHandler
 
     [SerializeField] protected GameObject deathFXPrefab;
 
-    private List<BodyPart> children;
-
     private void Awake()
     {
         curHP = maxHP;
-        children = new List<BodyPart>();
     }
 
     public virtual void OnProjectileHit(Projectile p)
@@ -28,16 +24,6 @@ public abstract class BodyPart : MonoBehaviour, IProjectileHandler
         Destroy(p.gameObject);
     }
 
-    public void AddChildPart(BodyPart toAdd)
-    {
-        children.Add(toAdd);
-        toAdd.body = body;
-    }
-
-    public void RemoveChildPart(BodyPart toRemove)
-    {
-        children.Remove(toRemove);
-    }
 
     public void SetBuildMode (bool isOn)
     {
@@ -52,16 +38,12 @@ public abstract class BodyPart : MonoBehaviour, IProjectileHandler
         }
     }
 
-    protected virtual void OnKilled()
+    public virtual void Kill()
     {
         GameObject go = Instantiate(deathFXPrefab) as GameObject;
         go.transform.position = transform.position;
-        for(int i = 0; i < children.Count; i++)
-        {
-            children[i].OnKilled();
-        }
+
         body.RemovePart(this);
-        parentPart.RemoveChildPart(this);
         Destroy(gameObject);
     }
 

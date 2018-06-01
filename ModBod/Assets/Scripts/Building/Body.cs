@@ -12,6 +12,8 @@ public class Body : MonoBehaviour {
     [SerializeField] private GameObject buildSlotHighlightPrefab;
     [SerializeField] private BodyGrid grid;
     private List<GameObject> highlights;
+    private bool[,] integrityGrid;
+    public bool needIntegrityCheck = false;
 
     // Use this for initialization
     void Awake () {
@@ -39,6 +41,15 @@ public class Body : MonoBehaviour {
         RecalculateMass();
     }
 
+    private void Update()
+    {
+        if (needIntegrityCheck)
+        {
+            CheckIntegrity();
+            needIntegrityCheck = false;
+        }
+    }
+
     private void Start()
     {
         SetBuildMode(false);
@@ -56,13 +67,50 @@ public class Body : MonoBehaviour {
     {
         bodyParts.Remove(p);
         p.transform.SetParent(null);
-        CheckIntegrity();
+        needIntegrityCheck = true;
         RecalculateMass();
     }
 
     private void CheckIntegrity()
     {
         // Check structural integrity, destroy any isolated segments
+        integrityGrid = new bool[maxCols,maxRows];
+        CheckCell(maxCols / 2, maxRows / 2);
+        BodyPart p;
+        for(int i = 0; i < maxCols; i++)
+        {
+            for(int j = 0; j < maxRows; j++)
+            {
+                if(integrityGrid[i,j] == false)
+                {
+                    p = grid.GetPartAt(i, j);
+                    if(p != null)
+                    {
+                        p.Kill();
+                    }
+                }
+            }
+        }
+    }
+
+    /// <summary>
+    /// Recursive flood fill to check what cells are attached to the main body. 
+    /// </summary>
+    /// <param name="col"></param>
+    /// <param name="row"></param>
+    private void CheckCell(int col, int row)
+    {
+        if (col > 0 && col < maxCols && row > 0 && row < maxRows)
+        {
+            if (!integrityGrid[col, row] && (grid.GetCellAt(col, row).part != null))
+            {
+                integrityGrid[col, row] = true;
+                CheckCell(col + 1, row);
+                CheckCell(col, row + 1);
+                CheckCell(col - 1, row);
+                CheckCell(col, row - 1);
+            }
+        }
     }
 
     private void RecalculateMass()
@@ -144,6 +192,6 @@ public class Body : MonoBehaviour {
 
     public bool CheckValidPlacement(BuildCell cell, BodyPart part, Dir facing)
     {
-        return true;
+        return cell.part == null;
     }
 }
