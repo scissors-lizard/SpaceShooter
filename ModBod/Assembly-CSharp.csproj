@@ -74,6 +74,8 @@
     <Compile Include="Assets\Scripts\CameraController.cs" />
     <Compile Include="Assets\Scripts\FX\SingleShotFX.cs" />
     <Compile Include="Assets\Scripts\FX\SpriteCycle.cs" />
+    <Compile Include="Assets\Scripts\FX\SpriteHeightRenderer.cs" />
+    <Compile Include="Assets\Scripts\FX\SpriteStack.cs" />
     <Compile Include="Assets\Scripts\Gameplay\BasicEnemy.cs" />
     <Compile Include="Assets\Scripts\Gameplay\HealthColorSetter.cs" />
     <Compile Include="Assets\Scripts\Gameplay\IProjectileHandler.cs" />

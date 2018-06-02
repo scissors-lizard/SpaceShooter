@@ -39,6 +39,8 @@ GameObject:
   - component: {fileID: 61863682210088372}
   - component: {fileID: 114336267223383050}
   - component: {fileID: 114629687880074422}
+  - component: {fileID: 114754097572896666}
+  - component: {fileID: 114124114264914658}
   m_Layer: 12
   m_Name: Piece_Gun
   m_TagString: Untagged
@@ -98,6 +100,19 @@ BoxCollider2D:
   serializedVersion: 2
   m_Size: {x: 0.64, y: 0.64}
   m_EdgeRadius: 0
+--- !u!114 &114124114264914658
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1355002814624426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 43cfa828f65050441995a6e6ec2b8f5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  spriteCount: 8
+  globalOffset: {x: 0, y: 0.05, z: 0}
 --- !u!114 &114336267223383050
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -122,7 +137,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   body: {fileID: 0}
-  parentPart: {fileID: 0}
   mass: 1
   maxHP: 5
   curHP: 5
@@ -140,7 +154,7 @@ MonoBehaviour:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1355002814624426}
-  m_Enabled: 1
+  m_Enabled: 0
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: 3ed8b77eba85b3a4894b6e8161c10f4c, type: 3}
   m_Name: 
@@ -176,6 +190,18 @@ MonoBehaviour:
     m_NumAlphaKeys: 2
   part: {fileID: 114460543117743244}
   sprite: {fileID: 212516372408558410}
+--- !u!114 &114754097572896666
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1355002814624426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 920425d3bf9afa344855fc40a03263bf, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  baseTrans: {fileID: 4050657496864368}
 --- !u!212 &212516372408558410
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -211,7 +237,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 0b8476c1424d8ef4fae3f8f44c2b33ba, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 20d27f162cdc7f0469cdef0285219c6c, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
