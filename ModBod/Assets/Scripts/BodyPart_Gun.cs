@@ -7,6 +7,7 @@ public class BodyPart_Gun : BodyPart {
     [SerializeField] private Transform firePoint;
     [SerializeField] private float kickback;
     [SerializeField] private SpriteRenderer bodySprite;
+    [SerializeField] private DamageFlash damageFX;
 
 
     public override void OnProjectileHit(Projectile p)
@@ -16,6 +17,11 @@ public class BodyPart_Gun : BodyPart {
         if(curHP <= 0)
         {
             Kill();
+        }
+        else
+        {
+            damageFX.Flash();
+            Debug.Log("Flash");
         }
     }
 

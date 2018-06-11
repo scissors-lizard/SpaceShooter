@@ -38,9 +38,8 @@ GameObject:
   - component: {fileID: 114460543117743244}
   - component: {fileID: 61863682210088372}
   - component: {fileID: 114336267223383050}
-  - component: {fileID: 114629687880074422}
-  - component: {fileID: 114754097572896666}
   - component: {fileID: 114124114264914658}
+  - component: {fileID: 114917074640197288}
   m_Layer: 12
   m_Name: Piece_Gun
   m_TagString: Untagged
@@ -55,8 +54,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1355002814624426}
   m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
-  m_LocalPosition: {x: -4.15, y: 0.31, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalPosition: {x: -4.277908, y: 0.25659096, z: 0}
+  m_LocalScale: {x: 0.25, y: 0.25, z: 0.25}
   m_Children:
   - {fileID: 4320622370228856}
   m_Father: {fileID: 0}
@@ -69,7 +68,7 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 1253323473150996}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0.51, z: 0}
+  m_LocalPosition: {x: 0, y: 2.197, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 4050657496864368}
@@ -91,14 +90,14 @@ BoxCollider2D:
   m_SpriteTilingProperty:
     border: {x: 0, y: 0, z: 0, w: 0}
     pivot: {x: 0.5, y: 0.5}
-    oldSize: {x: 0.64, y: 0.64}
+    oldSize: {x: 2.56, y: 2.56}
     newSize: {x: 0.64, y: 0.64}
     adaptiveTilingThreshold: 0.5
     drawMode: 0
     adaptiveTiling: 0
   m_AutoTiling: 0
   serializedVersion: 2
-  m_Size: {x: 0.64, y: 0.64}
+  m_Size: {x: 2.56, y: 2.56}
   m_EdgeRadius: 0
 --- !u!114 &114124114264914658
 MonoBehaviour:
@@ -111,8 +110,9 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 43cfa828f65050441995a6e6ec2b8f5e, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  spriteCount: 8
-  globalOffset: {x: 0, y: 0.05, z: 0}
+  spriteCount: 12
+  globalOffset: {x: 0, y: 0.02, z: 0}
+  renderers: []
 --- !u!114 &114336267223383050
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -148,49 +148,8 @@ MonoBehaviour:
   firePoint: {fileID: 4320622370228856}
   kickback: 10
   bodySprite: {fileID: 212516372408558410}
---- !u!114 &114629687880074422
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 1355002814624426}
-  m_Enabled: 0
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 3ed8b77eba85b3a4894b6e8161c10f4c, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  colorGradient:
-    serializedVersion: 2
-    key0: {r: 1, g: 0, b: 0, a: 1}
-    key1: {r: 0.9624374, g: 1, b: 0, a: 1}
-    key2: {r: 0.11484802, g: 1, b: 0, a: 0}
-    key3: {r: 0, g: 0, b: 0, a: 0}
-    key4: {r: 0, g: 0, b: 0, a: 0}
-    key5: {r: 0, g: 0, b: 0, a: 0}
-    key6: {r: 0, g: 0, b: 0, a: 0}
-    key7: {r: 0, g: 0, b: 0, a: 0}
-    ctime0: 0
-    ctime1: 31418
-    ctime2: 65535
-    ctime3: 0
-    ctime4: 0
-    ctime5: 0
-    ctime6: 0
-    ctime7: 0
-    atime0: 0
-    atime1: 65535
-    atime2: 0
-    atime3: 0
-    atime4: 0
-    atime5: 0
-    atime6: 0
-    atime7: 0
-    m_Mode: 0
-    m_NumColorKeys: 3
-    m_NumAlphaKeys: 2
-  part: {fileID: 114460543117743244}
-  sprite: {fileID: 212516372408558410}
---- !u!114 &114754097572896666
+  damageFX: {fileID: 114917074640197288}
+--- !u!114 &114917074640197288
 MonoBehaviour:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -198,10 +157,15 @@ MonoBehaviour:
   m_GameObject: {fileID: 1355002814624426}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 920425d3bf9afa344855fc40a03263bf, type: 3}
+  m_Script: {fileID: 11500000, guid: 6d16480f7db518d40887ca1c894e24ce, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  baseTrans: {fileID: 4050657496864368}
+  renderers: []
+  flashColor: {r: 1, g: 0.018810872, b: 0, a: 1}
+  flashDur: 0.05
+  gapDur: 0.05
+  flashes: 4
+  spriteStack: {fileID: 114124114264914658}
 --- !u!212 &212516372408558410
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -237,7 +201,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 20d27f162cdc7f0469cdef0285219c6c, type: 3}
+  m_Sprite: {fileID: 21300000, guid: ce5f574df5cebaa4092afb795fff95dd, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0

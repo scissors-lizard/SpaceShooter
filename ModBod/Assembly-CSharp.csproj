@@ -72,6 +72,7 @@
     <Compile Include="Assets\Scripts\Building\Dir.cs" />
     <Compile Include="Assets\Scripts\Building\DirExtension.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\FX\DamageFlash.cs" />
     <Compile Include="Assets\Scripts\FX\SingleShotFX.cs" />
     <Compile Include="Assets\Scripts\FX\SpriteCycle.cs" />
     <Compile Include="Assets\Scripts\FX\SpriteHeightRenderer.cs" />
