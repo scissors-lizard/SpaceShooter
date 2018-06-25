@@ -40,6 +40,7 @@ GameObject:
   - component: {fileID: 114336267223383050}
   - component: {fileID: 114124114264914658}
   - component: {fileID: 114917074640197288}
+  - component: {fileID: 114692911256647814}
   m_Layer: 12
   m_Name: Piece_Gun
   m_TagString: Untagged
@@ -149,6 +150,30 @@ MonoBehaviour:
   kickback: 10
   bodySprite: {fileID: 212516372408558410}
   damageFX: {fileID: 114917074640197288}
+--- !u!114 &114692911256647814
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 1355002814624426}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71fc3c62c7e2f9e4eae7de1d71037131, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  frameDuration: 0.1
+  frames:
+  - {fileID: 21300000, guid: 5b540276b8e06dc4e84ea28527eaa571, type: 3}
+  - {fileID: 21300002, guid: 5b540276b8e06dc4e84ea28527eaa571, type: 3}
+  - {fileID: 21300004, guid: 5b540276b8e06dc4e84ea28527eaa571, type: 3}
+  - {fileID: 21300006, guid: 5b540276b8e06dc4e84ea28527eaa571, type: 3}
+  - {fileID: 21300008, guid: 5b540276b8e06dc4e84ea28527eaa571, type: 3}
+  - {fileID: 21300010, guid: 5b540276b8e06dc4e84ea28527eaa571, type: 3}
+  - {fileID: 21300012, guid: 5b540276b8e06dc4e84ea28527eaa571, type: 3}
+  - {fileID: 21300014, guid: 5b540276b8e06dc4e84ea28527eaa571, type: 3}
+  - {fileID: 21300016, guid: 5b540276b8e06dc4e84ea28527eaa571, type: 3}
+  - {fileID: 21300018, guid: 5b540276b8e06dc4e84ea28527eaa571, type: 3}
+  - {fileID: 21300020, guid: 5b540276b8e06dc4e84ea28527eaa571, type: 3}
 --- !u!114 &114917074640197288
 MonoBehaviour:
   m_ObjectHideFlags: 1

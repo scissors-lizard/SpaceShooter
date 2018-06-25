@@ -8,12 +8,15 @@ public class SpriteStack : MonoBehaviour {
     [SerializeField] private Vector3 globalOffset;
 
     public SpriteRenderer[] renderers;
+    private SpriteCycle spriteCycle;
 
 	// Use this for initialization
 	void Awake () {
         renderers = new SpriteRenderer[spriteCount];
         renderers[0] = GetComponent<SpriteRenderer>();
 
+        spriteCycle = GetComponent<SpriteCycle>();
+        bool cycleAttached = (spriteCycle != null);
         for (int i = 1; i < spriteCount; i++)
         {
             GameObject o = new GameObject(gameObject.name + "_s"+i);
@@ -22,7 +25,15 @@ public class SpriteStack : MonoBehaviour {
             SpriteRenderer r = o.AddComponent<SpriteRenderer>();
             r.sprite = renderers[0].sprite;
             renderers[i] = r;
+            if (cycleAttached)
+            {
+                SpriteCycle s = o.AddComponent<SpriteCycle>();
+                s.frames = spriteCycle.frames;
+                s.frameDuration = spriteCycle.frameDuration;
+            }
         }
+
+        
 
     }
 	

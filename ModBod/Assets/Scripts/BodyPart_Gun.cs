@@ -21,7 +21,6 @@ public class BodyPart_Gun : BodyPart {
         else
         {
             damageFX.Flash();
-            Debug.Log("Flash");
         }
     }
 
