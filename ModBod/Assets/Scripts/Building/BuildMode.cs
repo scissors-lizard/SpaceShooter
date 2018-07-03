@@ -22,7 +22,7 @@ public class BuildMode : Singleton<BuildMode> {
     {
         if(curBuildable == null || !curBuildable.enabled)
         {
-            GameObject o = Instantiate(buildPiecePrefabs[0]) as GameObject;
+            GameObject o = Instantiate(buildPiecePrefabs[(int)(Random.value * buildPiecePrefabs.Length)]) as GameObject;
             curBuildable = o.GetComponent<Buildable>();
         }
 

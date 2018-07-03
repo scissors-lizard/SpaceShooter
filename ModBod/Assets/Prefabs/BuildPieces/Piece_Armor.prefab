@@ -146,7 +146,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 33ae4a1a03eaae74ea89538c11a0f28d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  part: {fileID: 0}
+  part: {fileID: 114024928488824862}
+  validConnElement: {fileID: 1455598618633904, guid: 06e80f09928ee9841ae76e25a27f460b,
+    type: 2}
+  invalidConnElement: {fileID: 1796746758025084, guid: e42b4bee11630cd45a3c32f5e5ad8001,
+    type: 2}
 --- !u!114 &114692911256647814
 MonoBehaviour:
   m_ObjectHideFlags: 1

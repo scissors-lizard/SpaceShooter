@@ -50,3 +50,6 @@ TagManager:
   - name: Obj_Front
     uniqueID: 1186111477
     locked: 0
+  - name: FG
+    uniqueID: 2332666525
+    locked: 0

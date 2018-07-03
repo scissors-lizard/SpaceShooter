@@ -8,6 +8,8 @@ public class Buildable : MonoBehaviour {
     public bool Snapping { get { return snapping; } }
     public BodyPart part;
 
+    [SerializeField] private GameObject validConnElement, invalidConnElement;
+
     private Camera cam;
     private bool snapping = false;
     private GameObject colliderHolder;
@@ -20,9 +22,63 @@ public class Buildable : MonoBehaviour {
     private Dir targetDir;
     private bool targetingValidPlacement = false;
 
+    private GameObject[] validConnArrows, invalidConnArrows;
+
     private void Awake()
     {
         cam = Camera.main;
+        validConnArrows = new GameObject[4];
+        invalidConnArrows = new GameObject[4];
+
+        validConnArrows[0] = Instantiate(validConnElement) as GameObject;
+        validConnArrows[0].transform.SetParent(transform);
+        invalidConnArrows[0] = Instantiate(invalidConnElement) as GameObject;
+        invalidConnArrows[0].transform.SetParent(transform);
+        validConnArrows[0].transform.localPosition = Dir.N.ToVector2() * 2.5f;
+        invalidConnArrows[0].transform.localPosition = Dir.N.ToVector2() * 2.5f;
+        validConnArrows[0].transform.up = transform.up;
+        invalidConnArrows[0].transform.up = transform.up;
+
+        validConnArrows[1] = Instantiate(validConnElement) as GameObject;
+        validConnArrows[1].transform.SetParent(transform);
+        invalidConnArrows[1] = Instantiate(invalidConnElement) as GameObject;
+        invalidConnArrows[1].transform.SetParent(transform);
+        validConnArrows[1].transform.localPosition = Dir.E.ToVector2() * 2.5f;
+        invalidConnArrows[1].transform.localPosition = Dir.E.ToVector2() * 2.5f;
+        validConnArrows[1].transform.up = transform.right;
+        invalidConnArrows[1].transform.up = transform.right;
+
+        validConnArrows[2] = Instantiate(validConnElement) as GameObject;
+        validConnArrows[2].transform.SetParent(transform);
+        invalidConnArrows[2] = Instantiate(invalidConnElement) as GameObject;
+        invalidConnArrows[2].transform.SetParent(transform);
+        validConnArrows[2].transform.localPosition = Dir.S.ToVector2() * 2.5f;
+        invalidConnArrows[2].transform.localPosition = Dir.S.ToVector2() * 2.5f;
+        validConnArrows[2].transform.up = -transform.up;
+        invalidConnArrows[2].transform.up = -transform.up;
+
+        validConnArrows[3] = Instantiate(validConnElement) as GameObject;
+        validConnArrows[3].transform.SetParent(transform);
+        invalidConnArrows[3] = Instantiate(invalidConnElement) as GameObject;
+        invalidConnArrows[3].transform.SetParent(transform);
+        validConnArrows[3].transform.localPosition = Dir.W.ToVector2() * 2.5f;
+        invalidConnArrows[3].transform.localPosition = Dir.W.ToVector2() * 2.5f;
+        validConnArrows[3].transform.up = -transform.right;
+        invalidConnArrows[3].transform.up = -transform.right;
+
+        for(int i = 0; i < 4; i++)
+        {
+            if (part.validConnectors[i])
+            {
+                invalidConnArrows[i].SetActive(false);
+                validConnArrows[i].SetActive(true);
+            }
+            else
+            {
+                invalidConnArrows[i].SetActive(false);
+                validConnArrows[i].SetActive(false);
+            }
+        }
     }
 
     // Use this for initialization
@@ -132,6 +188,11 @@ public class Buildable : MonoBehaviour {
             body.AddPart(part, targetCell.col, targetCell.row, targetDir);
             body.UpdateHighlights();
 
+            for(int i = 0; i < 4; i++)
+            {
+                Destroy(validConnArrows[i]);
+                Destroy(invalidConnArrows[i]);
+            }
             Destroy(this);
         }
     }
