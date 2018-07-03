@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BodyPart_Core : BodyPart {
     [SerializeField] private SpriteRenderer bodySprite;
+    [SerializeField] private DamageFlash[] flashFX;
 
     public override void OnProjectileHit(Projectile p)
     {
@@ -11,6 +12,13 @@ public class BodyPart_Core : BodyPart {
         if (curHP <= 0)
         {
             Kill();
+        }
+        else
+        {
+            for(int i = 0; i < flashFX.Length; i++)
+            {
+                flashFX[i].Flash();
+            }
         }
         Destroy(p.gameObject);
     }

@@ -63,6 +63,7 @@
     <Compile Include="Assets\Demigiant\DOTween\Examples\Sequences.cs" />
     <Compile Include="Assets\Scripts\BodyGrid.cs" />
     <Compile Include="Assets\Scripts\BodyPart.cs" />
+    <Compile Include="Assets\Scripts\BodyPart_Armor.cs" />
     <Compile Include="Assets\Scripts\BodyPart_Core.cs" />
     <Compile Include="Assets\Scripts\BodyPart_Gun.cs" />
     <Compile Include="Assets\Scripts\Building\Body.cs" />
@@ -72,6 +73,7 @@
     <Compile Include="Assets\Scripts\Building\Dir.cs" />
     <Compile Include="Assets\Scripts\Building\DirExtension.cs" />
     <Compile Include="Assets\Scripts\CameraController.cs" />
+    <Compile Include="Assets\Scripts\DebugEnemySpawner.cs" />
     <Compile Include="Assets\Scripts\FX\DamageFlash.cs" />
     <Compile Include="Assets\Scripts\FX\SingleShotFX.cs" />
     <Compile Include="Assets\Scripts\FX\SpriteCycle.cs" />

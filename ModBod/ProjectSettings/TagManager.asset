@@ -38,12 +38,15 @@ TagManager:
   - 
   - 
   m_SortingLayers:
-  - name: Behind
+  - name: BG
+    uniqueID: 3261214139
+    locked: 0
+  - name: Obj_Behind
     uniqueID: 2339141007
     locked: 0
   - name: Default
     uniqueID: 0
     locked: 0
-  - name: Front
+  - name: Obj_Front
     uniqueID: 1186111477
     locked: 0

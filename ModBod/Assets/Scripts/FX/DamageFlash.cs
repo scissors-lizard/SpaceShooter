@@ -15,7 +15,15 @@ public class DamageFlash : MonoBehaviour {
 
     public void Start()
     {
-        renderers = spriteStack.renderers;
+        if (spriteStack != null)
+        {
+            renderers = spriteStack.renderers;
+        }
+        else
+        {
+            renderers = new SpriteRenderer[1];
+            renderers[0] = GetComponent<SpriteRenderer>();
+        }
     }
 
     public void Flash()
