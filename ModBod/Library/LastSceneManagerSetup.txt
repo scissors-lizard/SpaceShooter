@@ -1,4 +1,4 @@
 sceneSetups:
-- path: Assets/CoreGameSandbox.unity
+- path: Assets/Scenes/TilemapSandbox.unity
   isLoaded: 1
   isActive: 1
